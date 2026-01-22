@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syllabus Parte 2: Construcción</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e293b;
+            --accent: #d946ef;
+            /* Magenta para diferenciar parte 2 */
+            --bg: #f8fafc;
+            --text: #334155;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Reutilizamos estilos base */
+        .module {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: var(--secondary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--primary);
+            margin-top: 25px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #d946ef;
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- CAPÍTULO 5 -->
+        <div class="module">
+            <span class="badge">Machine Learning</span>
+            <h2>Capítulo 5: Entrenamiento del "Cerebro" Artificial</h2>
+            <h3>5.1 Train/Test Split</h3>
+            <p>Aprenderemos la regla de oro del Data Science: nunca evaluar con los datos de práctica. Dividiremos
+                nuestro dataset 80/20 para garantizar una evaluación honesta del rendimiento.</p>
+
+            <h3>5.2 Serialización con Joblib</h3>
+            <p>Una vez que el modelo "aprende", congelaremos su conocimiento en un archivo <code>.pkl</code>. Esto
+                permite que la IA funcione sin re-entrenarse cada vez que encendemos el servidor.</p>
+        </div>
+
+        <!-- CAPÍTULO 6 -->
+        <div class="module">
+            <span class="badge">API Design</span>
+            <h2>Capítulo 6: Integración y Endpoints Inteligentes</h2>
+            <h3>6.1 Validación Estricta con Pydantic</h3>
+            <p>En medicina, los datos erróneos son fatales. Crearemos esquemas <strong>DTO (Data Transfer
+                    Objects)</strong> que rechacen automáticamente valores imposibles (ej. edad negativa) antes de que
+                toquen nuestra IA.</p>
+
+            <h3>6.2 Ruta POST de Predicción</h3>
+            <p>Desarrollaremos el endpoint <code>/predict</code> que orquesta todo: recibe datos, los convierte a
+                matrices NumPy, consulta al modelo y devuelve el pronóstico clínico en JSON.</p>
+        </div>
+
+        <!-- CAPÍTULO 7 -->
+        <div class="module">
+            <span class="badge">Frontend Framework</span>
+            <h2>Capítulo 7: Frontend Reactivo con Vite</h2>
+            <h3>7.1 Velocidad de Desarrollo</h3>
+            <p>Abandonaremos herramientas lentas. Usaremos <strong>Vite</strong> para un desarrollo instantáneo.
+                Configuraremos <strong>TypeScript</strong> para añadir seguridad de tipos a nuestros formularios
+                médicos.</p>
+
+            <h3>7.2 Arquitectura de Componentes</h3>
+            <p>Estructuraremos nuestra app en componentes modulares, preparándonos para una escalabilidad masiva.</p>
+        </div>
+
+        <!-- CAPÍTULO 8 -->
+        <div class="module">
+            <span class="badge">UI / UX</span>
+            <h2>Capítulo 8: Psicología del Diseño Médico (Glassmorphism)</h2>
+            <h3>8.1 Estética de Confianza</h3>
+            <p>Diseñaremos una interfaz que elimine la ansiedad. Usaremos paletas de colores oscuros, efectos de cristal
+                esmerilado (Glassmorphism) y tipografía geométrica (Outfit) para transmitir modernidad y precisión.</p>
+
+            <h3>8.2 Micro-interacciones con CSS</h3>
+            <p>Aprenderemos a usar gradientes y animaciones sutiles que guíen al usuario a través del complejo
+                formulario de datos clínicos sin abrumarlo.</p>
+        </div>
+
+    </div>
+</body>
+
+</html>

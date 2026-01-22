@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagramas de Arquitectura - Diabetes AI</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .diagram-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 1000px;
+        }
+
+        h2 {
+            color: #0f172a;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3b82f6;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        p {
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Galería de Diagramas Técnicos</h1>
+    <p>Visualización de la arquitectura y flujo de datos del proyecto Diamond Diabetes AI.</p>
+
+    <!-- DIAGRAMA 1: ARQUITECTURA -->
+    <div class="diagram-container">
+        <h2>1. Arquitectura de Alto Nivel</h2>
+        <p>Estructura general de comunicación entre el Cliente y el Servidor.</p>
+        <div class="mermaid">
+            graph LR
+            subgraph Cliente [Computadora del Usuario]
+            Browser[Navegador Web]
+            React[Frontend React SPA]
+            end
+
+            subgraph Servidor [Servidor Python]
+            API[FastAPI Server]
+            Model[Modelo IA (Scikit-Learn)]
+            Dataset[Diabetes Dataset]
+            end
+
+            Browser -->|Interacción| React
+            React -->|HTTP POST JSON| API
+            API -->|Extraer Features| Model
+            Dataset -->|Entrenamiento (Init)| Model
+            Model -->|Predicción Float| API
+            API -->|Respuesta JSON| React
+
+            style Cliente fill:#e0f2fe,stroke:#3b82f6
+            style Servidor fill:#f0fdf4,stroke:#22c55e
+            style React fill:#fff,stroke:#3b82f6,stroke-width:2px
+            style Model fill:#fff,stroke:#22c55e,stroke-width:2px
+        </div>
+    </div>
+
+    <!-- DIAGRAMA 2: SECUENCIA -->
+    <div class="diagram-container">
+        <h2>2. Flujo de Predicción (Secuencia)</h2>
+        <p>Paso a paso de una solicitud de predicción.</p>
+        <div class="mermaid">
+            sequenceDiagram
+            actor Medico as Usuario (Médico)
+            participant FE as Frontend (React)
+            participant BE as Backend (FastAPI)
+            participant AI as Modelo IA
+
+            Medico->>FE: Ingresa 10 Variables Clínicas
+            Medico->>FE: Clic en "Predecir"
+            activate FE
+            FE->>FE: Validar números (Typescript)
+            FE->>BE: POST /predict {json}
+            activate BE
+            BE->>BE: Validar Typos (Pydantic)
+            BE->>AI: model.predict([array])
+            activate AI
+            AI-->>BE: Retorna: 154.34 (Progresión)
+            deactivate AI
+            BE-->>FE: Response: { "resultado": 154.34 }
+            deactivate BE
+            FE-->>Medico: Muestra Alerta de Riesgo
+            deactivate FE
+        </div>
+    </div>
+
+    <!-- DIAGRAMA 3: PIPELINE DE ENTRENAMIENTO -->
+    <div class="diagram-container">
+        <h2>3. Pipeline de Machine Learning</h2>
+        <p>Cómo aprende el modelo antes de poder predecir.</p>
+        <div class="mermaid">
+            flowchart TD
+            Raw[Datos Crudos (442 Pacientes)] -->|Carga| Split{Train/Test Split}
+            Split -->|80% Datos| Train[Conjunto de Entrenamiento]
+            Split -->|20% Datos| Test[Conjunto de Prueba]
+
+            Train -->|Fit| Algo[Regresión Lineal]
+            Algo -->|Genera| Model((Modelo Entrenado))
+
+            Test -->|Evaluar| Model
+            Model -->|Métricas| Score[MSE / R2 Score]
+
+            style Raw fill:#f1f5f9,stroke:#64748b
+            style Model fill:#fcd34d,stroke:#f59e0b,stroke-width:4px
+            style Algo fill:#bfdbfe,stroke:#3b82f6
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syllabus Parte 3: Finalización y Despliegue</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e293b;
+            --accent: #f59e0b;
+            /* Ambar para la fase final */
+            --bg: #f8fafc;
+            --text: #334155;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .module {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: var(--secondary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--primary);
+            margin-top: 25px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .deploy-section {
+            background: #eff6ff;
+            border-left: 5px solid var(--primary);
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- CAPÍTULO 9 -->
+        <div class="module">
+            <span class="badge">Integración</span>
+            <h2>Capítulo 9: Conexión Full Stack (Fetch API)</h2>
+            <h3>9.1 El Puente Asíncrono</h3>
+            <p>Uniremos ambos mundos. Usaremos la Fetch API moderna de JavaScript para enviar los datos del formulario
+                React hacia nuestro servidor Python, manejando estados de carga (Loading) y errores de red.</p>
+        </div>
+
+        <!-- CAPÍTULO 10 -->
+        <div class="module">
+            <span class="badge">Validación</span>
+            <h2>Capítulo 10: Manejo de Errores y Feedback de Usuario</h2>
+            <h3>10.1 UX Defensiva</h3>
+            <p>¿Qué pasa si el servidor está caído? ¿Qué si el usuario ingresa texto en el campo de BMI? Implementaremos
+                mensajes de error amigables y validaciones en tiempo real para una experiencia robusta.</p>
+        </div>
+
+        <!-- CAPÍTULO 11 -->
+        <div class="module">
+            <span class="badge">Testing</span>
+            <h2>Capítulo 11: Pruebas de Integración y Calidad</h2>
+            <h3>11.1 Verificación Final</h3>
+            <p>Realizaremos un "caminata de usuario" completa (End-to-End), simulando casos de pacientes reales para
+                verificar que la predicción matemática coincida con lo esperado.</p>
+        </div>
+
+        <!-- CAPÍTULO 12 -->
+        <div class="module">
+            <span class="badge">Optimización</span>
+            <h2>Capítulo 12: Preparación para Producción</h2>
+            <h3>12.1 Limpieza de Código</h3>
+            <p>Refactorización final. Eliminaremos <code>console.log</code>, optimizaremos importaciones y aseguraremos
+                que el código siga los estándares PEP-8 (Python) y ESLint (React).</p>
+        </div>
+
+        <!-- CAPÍTULO 13: DEPLOY -->
+        <div class="module deploy-section">
+            <span class="badge" style="background:#dc2626">Despliegue Profesional</span>
+            <h2>Capítulo 13: Despliegue del Backend en la Nube (Render/Railway)</h2>
+            <h3>13.1 Dockerización (Containerización)</h3>
+            <p>Empaquetaremos nuestra aplicación Python en un contenedor <strong>Docker</strong>. Esto garantiza que
+                funcione igual en la nube que en tu laptop, eliminando problemas de compatibilidad.</p>
+
+            <h3>13.2 CI/CD Pipeline</h3>
+            <p>Configuraremos un despliegue automático. Aprenderás a conectar tu repositorio de GitHub con un servicio
+                PaaS (como Render o Railway) para que cada vez que guardes código, tu servidor se actualice solo en
+                internet.</p>
+        </div>
+
+        <!-- CAPÍTULO 14: DEPLOY FRONTEND -->
+        <div class="module deploy-section">
+            <span class="badge" style="background:#dc2626">Despliegue Profesional</span>
+            <h2>Capítulo 14: Despliegue del Frontend (Vercel/Netlify)</h2>
+            <h3>14.1 Build de Producción</h3>
+            <p>Ejecutaremos <code>npm run build</code> para minificar nuestro JavaScript y CSS, creando archivos
+                estáticos ultra-ligeros listos para viajar por fibra óptica.</p>
+
+            <h3>14.2 Distribución Global (CDN)</h3>
+            <p>Subiremos nuestra UI a Vercel. Aprenderás a configurar las variables de entorno para que tu Frontend en
+                la nube sepa encontrar a tu Backend en la nube (que vive en una URL diferente a <code>localhost</code>).
+            </p>
+        </div>
+
+    </div>
+</body>
+
+</html>

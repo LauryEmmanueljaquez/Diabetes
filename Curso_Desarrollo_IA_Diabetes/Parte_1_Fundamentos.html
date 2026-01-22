@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syllabus: IA Clínica Full Stack</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e293b;
+            --accent: #10b981;
+            --bg: #f8fafc;
+            --text: #334155;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--secondary), #0f172a);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--accent);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            color: var(--secondary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            color: var(--primary);
+            margin-top: 25px;
+        }
+
+        .module {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .module:hover {
+            transform: translateY(-3px);
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #d946ef;
+            font-family: monospace;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Curso Avanzado: Construcción de IA Médica Predictiva</h1>
+        <p>Guía Maestra Paso a Paso | Backend Python & Frontend React Moderno</p>
+    </header>
+
+    <div class="container">
+
+        <div class="module">
+            <h2>0. Introducción y Visión General</h2>
+            <p>Bienvenidos al curso donde transformaremos teoría en software que salva vidas. Construiremos una
+                plataforma completa (Full Stack) capaz de predecir la progresión de la diabetes utilizando algoritmos de
+                regresión lineal avanzados.</p>
+
+            <h3>¿Qué hace el proyecto?</h3>
+            <p>El sistema <strong>Diamond Diabetes AI</strong> es una herramienta de <em>medicina de precisión</em>.
+                Analiza 10 biomarcadores complejos (como niveles séricos de lípidos y presión arterial) para calcular
+                matemáticamente cuánto avanzará la enfermedad en un paciente específico un año después de su evaluación
+                base.</p>
+
+            <h3>Aplicabilidad en el Mundo Real</h3>
+            <ul>
+                <li><strong>Clínicas:</strong> Priorización automática de pacientes de alto riesgo.</li>
+                <li><strong>Aseguradoras:</strong> Modelado de riesgo a largo plazo.</li>
+                <li><strong>HealthTech:</strong> Integración en relojes inteligentes o apps de bienestar.</li>
+            </ul>
+        </div>
+
+        <!-- CAPÍTULO 1 -->
+        <div class="module">
+            <span class="badge">Teoría Fundamental</span>
+            <h2>Capítulo 1: Fundamentos de IA y Regresión</h2>
+            <h3>1.1 Diferenciando Problemas</h3>
+            <p>Aprenderemos a distinguir cuando usar <strong>Clasificación</strong> (Sí/No) versus
+                <strong>Regresión</strong> (Valor Continuo). Entenderemos por qué predecir un "índice de gravedad"
+                numérico es más valioso clínicamente que un simple diagnóstico binario.</p>
+
+            <h3>1.2 Matemáticas para Ingenieros</h3>
+            <p>Desmitificaremos la ecuación de la recta <code>y = mx + b</code>. Visualizaremos cómo el algoritmo
+                encuentra la "línea perfecta" que minimiza el error entre miles de datos de pacientes históricos.</p>
+        </div>
+
+        <!-- CAPÍTULO 2 -->
+        <div class="module">
+            <span class="badge">Infraestructura</span>
+            <h2>Capítulo 2: Configuración del Entorno de Desarrollo</h2>
+            <h3>2.1 El Setup Profesional</h3>
+            <p>Instalaremos <strong>Python 3.10+</strong> para el procesamiento de datos y <strong>Node.js</strong> para
+                nuestra interfaz web. Configuraremos un entorno virtual para aislar nuestras dependencias médicas.</p>
+
+            <h3>2.2 Arquitectura Monorepo</h3>
+            <p>Estructuraremos nuestro proyecto profesionalmente:</p>
+            <ul>
+                <li><code>/backend</code>: El cerebro (FastAPI, Scikit-learn).</li>
+                <li><code>/frontend</code>: La cara (React, Vite, CSS Modules).</li>
+            </ul>
+        </div>
+
+        <!-- CAPÍTULO 3 -->
+        <div class="module">
+            <span class="badge">Data Science</span>
+            <h2>Capítulo 3: Análisis del Dataset (ETL)</h2>
+            <h3>3.1 Disección de Datos</h3>
+            <p>Exploraremos el famoso <em>Diabetes Dataset</em> de Efron et al. (442 pacientes). Analizaremos cada una
+                de las 10 variables (Edad, Sexo, BMI, BP, S1-S6) y entenderemos su relevancia clínica.</p>
+
+            <h3>3.2 Normalización</h3>
+            <p>Entenderemos por qué los datos crudos pueden confundir a la IA y cómo el pre-procesamiento estadístico es
+                crucial para obtener predicciones precisas.</p>
+        </div>
+
+        <!-- CAPÍTULO 4 -->
+        <div class="module">
+            <span class="badge">Backend Development</span>
+            <h2>Capítulo 4: Backend de Alto Rendimiento con FastAPI</h2>
+            <h3>4.1 ¿Por qué FastAPI?</h3>
+            <p>Implementaremos tecnología asíncrona moderna. A diferencia de Flask clásico, FastAPI nos permite crear
+                APIs ultra-rápidas y auto-documentadas.</p>
+
+            <h3>4.2 "Hello World" Clínico</h3>
+            <p>Levantaremos nuestro primer servidor web en Python capaz de responder peticiones HTTP en milisegundos.
+            </p>
+        </div>
+
+    </div>
+</body>
+
+</html>

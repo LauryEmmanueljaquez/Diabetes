@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syllabus Completo: Ing. de IA Médica</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #0f172a;
+            --accent: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --bg: #f1f5f9;
+            --text: #334155;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 6px solid var(--accent);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 20px auto 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: -40px auto 40px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 60px 0 30px;
+            color: var(--secondary);
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .module {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid var(--primary);
+            transition: transform 0.2s ease;
+        }
+
+        .module:hover {
+            transform: translateY(-5px);
+        }
+
+        .module.deployment {
+            border-left-color: var(--danger);
+            background: #fffafa;
+        }
+
+        h2 {
+            color: var(--secondary);
+            margin-top: 0;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: var(--primary);
+            margin-top: 25px;
+            font-size: 1.1rem;
+        }
+
+        .badge {
+            background: var(--secondary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            vertical-align: middle;
+        }
+
+        .diagram {
+            background: #f8fafc;
+            border: 2px dashed #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            color: #64748b;
+            font-style: italic;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #f1f5f9;
+            color: #d946ef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hero">
+        <h1>Manual del Curso: IA Médica</h1>
+        <p>Guía paso a paso para construir y desplegar "Diamond Diabetes AI"</p>
+    </div>
+
+    <div class="container">
+
+        <!-- INTRO -->
+        <div class="module" style="border-left-color: var(--accent);">
+            <span class="badge" style="background: var(--accent);">Inicio</span>
+            <h2>Introducción: Tu Camino a la Ingeniería de IA</h2>
+            <p>Este no es un curso teórico. Es una simulación de desarrollo de producto real. Construirás una
+                herramienta de diagnóstico capaz de salvar vidas mediante la predicción matemática.</p>
+
+            <div class="diagram">
+                [Gráfico Mental] Datos Clínicos (Inputs) ➔ Algoritmo de Regresión (Procesamiento) ➔ Índice de Riesgo
+                (Output)
+            </div>
+
+            <h3>¿Qué vamos a construir?</h3>
+            <p>Una aplicación web moderna (React) conectada a un cerebro de Inteligencia Artificial (Python) que utiliza
+                el dataset real de diabetes para predecir la progresión de la enfermedad basándose en 10 variables
+                fisiológicas.</p>
+        </div>
+
+        <!-- PARTE 1 -->
+        <div class="section-title">Fase 1: Fundamentos y Backend</div>
+
+        <div class="module">
+            <h2>Capítulo 1: Fundamentos de Regresión</h2>
+            <p>Aprenderás a distinguir entre Clasificación (Sí/No) y Regresión (Valor numérico). Entenderás por qué para
+                la diabetes progresiva, necesitamos ver "el futuro" en números, no en etiquetas.</p>
+        </div>
+
+        <div class="module">
+            <h2>Capítulo 2: Setup de Ingeniería</h2>
+            <p>Configuración del entorno "Monorepo". Instalarás Python 3.11 y Node.js. Aprenderás a usar entornos
+                virtuales (`venv`) para evitar conflictos de librerías, una práctica estándar en Silicon Valley.</p>
+        </div>
+
+        <div class="module">
+            <h2>Capítulo 3: Data Science y ETL</h2>
+            <p>Exploración forense de datos. Analizaremos las 10 variables del dataset (Edad, Sexo, BMI, Presión
+                Arterial, S1-S6). Entenderás la importancia de la normalización de datos para que la IA no se confunda
+                con escalas diferentes.</p>
+        </div>
+
+        <div class="module">
+            <h2>Capítulo 4: FastAPI - El Motor Moderno</h2>
+            <p>Creación del servidor. Descubrirás por qué FastAPI ha reemplazado a Flask en la industria moderna gracias
+                a su velocidad asíncrona y validación automática de datos.</p>
+        </div>
+
+        <!-- PARTE 2 -->
+        <div class="section-title">Fase 2: El Cerebro (AI) y la Interfaz</div>
+
+        <div class="module">
+            <h2>Capítulo 5: Entrenamiento de Modelos</h2>
+            <p>El núcleo del curso. Usaremos <code>scikit-learn</code> para entrenar una Regresión Lineal. Aprenderás a
+                dividir datos (Train/Test Split) y a "congelar" el cerebro entrenado en un archivo <code>.pkl</code>.
+            </p>
+        </div>
+
+        <div class="module">
+            <h2>Capítulo 6: API RESTful</h2>
+            <p>Construcción de endpoints. Crearemos la ruta <code>POST /predict</code>. Aprenderás a diseñar contratos
+                de datos (DTOs) estrictos con Pydantic para asegurar que la información médica sea válida antes de
+                procesarla.</p>
+        </div>
+
+        <div class="module">
+            <h2>Capítulo 7: Frontend con Vite & React</h2>
+            <p>Desarrollo de interfaz ultrarrápido. Configuraremos un proyecto con TypeScript para garantizar seguridad
+                de tipos (vital en apps médicas) y estructuraremos una arquitectura de componentes escalable.</p>
+        </div>
+
+        <div class="module">
+            <h2>Capítulo 8: UX Médico y Glassmorphism</h2>
+            <p>Diseño empático. Crearemos una estética premium oscura con efectos de cristal. El objetivo: reducir la
+                ansiedad del usuario mediante una interfaz limpia, legible y profesional.</p>
+        </div>
+
+        <!-- PARTE 3 -->
+        <div class="section-title">Fase 3: Integración y Calidad</div>
+
+        <div class="module">
+            <h2>Capítulo 9: Conexión Full Stack</h2>
+            <p>Uniendo los cables. Usaremos <code>fetch</code> en React para enviar los datos del formulario al backend
+                de Python en tiempo real, manejando estados de "Cargando..." para una mejor experiencia.</p>
+        </div>
+
+        <div class="module">
+            <h2>Capítulo 10: Manejo de Errores</h2>
+            <p>Programación defensiva. ¿Qué pasa si el servidor falla? Implementaremos alertas visuales amigables para
+                informar al usuario sin tecnicismos.</p>
+        </div>
+
+        <div class="module">
+            <h2>Capítulo 11: Testing End-to-End</h2>
+            <p>Simulación de uso real. Probaremos el flujo completo: Ingreso de paciente -> Envío de datos -> Proceso de
+                IA -> Recepción de resultado -> Visualización.</p>
+        </div>
+
+        <div class="module">
+            <h2>Capítulo 12: Refactorización y Pulido</h2>
+            <p>Preparación para el mundo real. Limpieza de código, optimización de imports y revisión final de
+                estándares de calidad antes del despliegue.</p>
+        </div>
+
+        <!-- DEPLIEGUE -->
+        <div class="section-title">Fase 4: Despliegue Global (Bonus)</div>
+
+        <div class="module deployment">
+            <span class="badge" style="background: var(--danger);">Cloud</span>
+            <h2>Capítulo 13: Despliegue del Backend (Docker)</h2>
+            <p>Llevando la IA a la nube. Empaquetaremos la aplicación en un contenedor <strong>Docker</strong> y la
+                desplegaremos en servicios como Render o Railway. Configurarás las variables de entorno para producción.
+            </p>
+        </div>
+
+        <div class="module deployment">
+            <span class="badge" style="background: var(--danger);">Cloud</span>
+            <h2>Capítulo 14: Despliegue del Frontend (Vercel)</h2>
+            <p>Distribución mundial. Generaremos el build optimizado de React y lo alojaremos en una CDN global usando
+                Vercel. Conectarás la UI en la nube con tu API en Python.</p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

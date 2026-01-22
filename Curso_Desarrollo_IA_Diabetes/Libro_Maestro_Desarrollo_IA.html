@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro Maestro: Desarrollo Full Stack de IA Médica</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --code-bg: #1e293b;
+            --text: #334155;
+            --light: #f8fafc;
+            --step-bg: #e0f2fe;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--light);
+            margin: 0;
+        }
+
+        .sidebar {
+            position: fixed;
+            width: 280px;
+            height: 100vh;
+            background: var(--primary);
+            color: white;
+            overflow-y: auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .content {
+            margin-left: 280px;
+            padding: 60px 80px;
+            max-width: 900px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 10px;
+            margin-top: 50px;
+            color: var(--primary);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 30px;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 10px;
+            color: #94a3b8;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding-left: 15px;
+        }
+
+        .nav-header {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: #64748b;
+            margin: 25px 0 10px;
+            font-weight: bold;
+        }
+
+        .file-header {
+            background: #cbd5e1;
+            color: var(--primary);
+            padding: 8px 15px;
+            border-radius: 8px 8px 0 0;
+            font-family: monospace;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        pre {
+            background: var(--code-bg);
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 0 8px 8px 8px;
+            overflow-x: auto;
+            margin-top: 0;
+            border: 1px solid #334155;
+        }
+
+        code {
+            font-family: 'Consolas', monospace;
+        }
+
+        .keyword {
+            color: #c084fc;
+        }
+
+        .string {
+            color: #86efac;
+        }
+
+        .function {
+            color: #60a5fa;
+        }
+
+        .comment {
+            color: #64748b;
+        }
+
+        .note {
+            background: #eff6ff;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        /* GUI Step Styles */
+        .step-box {
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background: var(--accent);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
+        }
+
+        .cmd-block {
+            background: #1e293b;
+            color: #bef264;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-family: monospace;
+            margin: 10px 0;
+        }
+
+        .action-required {
+            font-weight: bold;
+            color: var(--accent);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div style="font-size: 1.2rem; font-weight: bold; margin-bottom: 30px; letter-spacing: -1px;">Diamond Diabetes
+            AI</div>
+
+        <div class="nav-header">Introducción</div>
+        <a href="#intro" class="nav-link">0. Conceptos Básicos</a>
+
+        <div class="nav-header">TALLER PRÁCTICO (Paso a Paso)</div>
+        <a href="#step1" class="nav-link">Paso 1: La Base</a>
+        <a href="#step2" class="nav-link">Paso 2: El Cerebro (Backend)</a>
+        <a href="#step3" class="nav-link">Paso 3: Dependencias</a>
+        <a href="#step4" class="nav-link">Paso 4: Código IA</a>
+        <a href="#step5" class="nav-link">Paso 5: Frontend Init</a>
+        <a href="#step6" class="nav-link">Paso 6: Conexión Final</a>
+    </div>
+
+    <div class="content">
+
+        <div id="intro">
+            <h1>Manual de Construcción: Workshop En Vivo</h1>
+            <p class="note"><strong>Aviso al Instructor:</strong> Esta sección está diseñada para ser seguida en tiempo
+                real. Pide a los alumnos que no se adelanten. Cada paso construye sobre el anterior.</p>
+        </div>
+
+        <!-- PASO 1 -->
+        <div id="step1" class="step-box">
+            <div class="step-number">1</div>
+            <h2>Preparación del Terreno</h2>
+            <p>Vamos a crear la carpeta del proyecto. Nadie escribe código sin una casa donde vivir.</p>
+
+            <p class="action-required">Acción del Alumno:</p>
+            <p>Abre tu terminal (PowerShell o CMD) y escribe:</p>
+            <div class="cmd-block">mkdir diabetes-ai</div>
+            <div class="cmd-block">cd diabetes-ai</div>
+            <div class="cmd-block">mkdir backend</div>
+
+            <p><strong>Explicación:</strong> Hemos creado la carpeta raíz y la subcarpeta del servidor. Aún no creamos
+                el frontend porque usaremos una herramienta automática para eso después.</p>
+        </div>
+
+        <!-- PASO 2 -->
+        <div id="step2" class="step-box">
+            <div class="step-number">2</div>
+            <h2>Configuración del Entorno Python</h2>
+            <p>Necesitamos aislar nuestras librerías para no romper otros proyectos en tu PC.</p>
+
+            <p class="action-required">Acción del Alumno:</p>
+            <div class="cmd-block">cd backend</div>
+            <div class="cmd-block">python -m venv venv</div>
+            <div class="cmd-block">venv\Scripts\activate</div>
+
+            <p><strong>Resultado esperado:</strong> Deberías ver un <code>(venv)</code> verde al inicio de tu línea de
+                comandos. Esto significa que estás en la "burbuja segura".</p>
+        </div>
+
+        <!-- PASO 3 -->
+        <div id="step3" class="step-box">
+            <div class="step-number">3</div>
+            <h2>Instalación de Cerebro (Librerías)</h2>
+            <p>Vamos a darle inteligencia a Python instalando las librerías científicas.</p>
+
+            <p class="action-required">Acción del Alumno:</p>
+            <p>Crea un archivo llamado <code>requirements.txt</code> dentro de la carpeta <code>backend</code> y pega
+                esto:</p>
+            <pre><code class="language-text">fastapi
+uvicorn
+scikit-learn
+pandas
+numpy
+pydantic</code></pre>
+
+            <p>Luego, ejecuta en la terminal:</p>
+            <div class="cmd-block">pip install -r requirements.txt</div>
+        </div>
+
+        <!-- PASO 4 -->
+        <div id="step4" class="step-box">
+            <div class="step-number">4</div>
+            <h2>Programación del Algoritmo (IA)</h2>
+            <p>Ahora escribiremos el código que aprende. Crea el archivo <code>main.py</code> en la carpeta
+                <code>backend</code>.</p>
+
+            <p class="action-required">Acción del Alumno: Copiar y Pegar Código Maestro</p>
+            <div class="file-header">/backend/main.py</div>
+            <pre><code class="language-python"><span class="keyword">from</span> fastapi <span class="keyword">import</span> FastAPI
+<span class="keyword">from</span> pydantic <span class="keyword">import</span> BaseModel
+<span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_diabetes
+<span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression
+<span class="keyword">import</span> uvicorn
+
+app = FastAPI()
+
+<span class="comment"># 1. CARGA DE DATOS & ENTRENAMIENTO</span>
+print(<span class="string">"Cargando cerebro..."</span>)
+diabetes = load_diabetes(scaled=False)
+X, y = diabetes.data, diabetes.target
+model = LinearRegression()
+model.fit(X, y)
+print(<span class="string">"Modelo entrenado exitosamente."</span>)
+
+<span class="comment"># 2. DEFINICION DEL CONTRATO DE DATOS</span>
+<span class="keyword">class</span> Paciente(BaseModel):
+    age: float
+    sex: float
+    bmi: float
+    bp: float
+    s1: float
+    s2: float
+    s3: float
+    s4: float
+    s5: float
+    s6: float
+
+<span class="comment"># 3. ENDPOINT DE PREDICCION</span>
+@app.post(<span class="string">"/predict"</span>)
+<span class="keyword">def</span> predict(data: Paciente):
+    datos_paciente = [[
+        data.age, data.sex, data.bmi, data.bp,
+        data.s1, data.s2, data.s3, data.s4, data.s5, data.s6
+    ]]
+    prediccion = model.predict(datos_paciente)
+    <span class="keyword">return</span> {<span class="string">"resultado"</span>: prediccion[0]}
+
+<span class="comment"># 4. LANZADOR</span>
+<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+    uvicorn.run(app, host=<span class="string">"0.0.0.0"</span>, port=8000)</code></pre>
+
+            <p><strong>Prueba Rápida:</strong> Ejecuta <code>python main.py</code>. Si ves "Modelo entrenado
+                exitosamente", ¡funciona!</p>
+        </div>
+
+        <!-- PASO 5 -->
+        <div id="step5" class="step-box">
+            <div class="step-number">5</div>
+            <h2>Creación del Frontend (React + Vite)</h2>
+            <p>Salgamos del backend y creemos la interfaz visual.</p>
+
+            <p class="action-required">Acción del Alumno:</p>
+            <p>Abre una <strong>NUEVA TERMINAL</strong> (no cierres la de Python). Ve a la carpeta raíz
+                <code>diabetes-ai</code>.</p>
+            <div class="cmd-block">cd ..</div>
+            <div class="cmd-block">npx create-vite@latest frontend --template react-ts</div>
+            <div class="cmd-block">cd frontend</div>
+            <div class="cmd-block">npm install</div>
+        </div>
+
+        <!-- PASO 6 -->
+        <div id="step6" class="step-box">
+            <div class="step-number">6</div>
+            <h2>Código Visual (App.tsx)</h2>
+            <p>Reemplazaremos la página de inicio por nuestro formulario médico.</p>
+
+            <p class="action-required">Acción del Alumno:</p>
+            <p>Abre el archivo <code>frontend/src/App.tsx</code>. Borra TODO su contenido y pega esto:</p>
+            <pre><code class="language-javascript"><span class="keyword">import</span> { useState } from <span class="string">'react'</span>;
+<span class="keyword">import</span> <span class="string">'./App.css'</span>;
+
+<span class="keyword">function</span> App() {
+  <span class="comment">// ESTADO: Aquí guardamos los datos del formulario</span>
+  <span class="keyword">const</span> [form, setForm] = useState({
+    age: 50, sex: 1, bmi: 25, bp: 80, 
+    s1: 150, s2: 100, s3: 50, s4: 4, s5: 4, s6: 90
+  });
+  <span class="keyword">const</span> [resultado, setResultado] = useState(null);
+
+  <span class="comment">// FUNCIÓN: Escucha cambios en los inputs</span>
+  <span class="keyword">const</span> handleChange = (e) => {
+    setForm({...form, [e.target.name]: parseFloat(e.target.value)});
+  };
+
+  <span class="comment">// FUNCIÓN: Envía los datos a Python</span>
+  <span class="keyword">const</span> predecir = <span class="keyword">async</span> () => {
+    <span class="keyword">const</span> respuesta = <span class="keyword">await</span> fetch(<span class="string">'http://localhost:8000/predict'</span>, {
+        method: <span class="string">'POST'</span>,
+        headers: { <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span> },
+        body: JSON.stringify(form)
+    });
+    <span class="keyword">const</span> data = <span class="keyword">await</span> respuesta.json();
+    setResultado(data.resultado);
+  };
+
+  <span class="comment">// VISUAL (JSX)</span>
+  <span class="keyword">return</span> (
+    &lt;div className="card"&gt;
+      &lt;h1&gt;Diabetes AI&lt;/h1&gt;
+      &lt;div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px'}}&gt;
+        {Object.keys(form).map(key => (
+            &lt;div key={key}&gt;
+                &lt;label&gt;{key.toUpperCase()}&lt;/label&gt;
+                &lt;input name={key} type="number" value={form[key]} onChange={handleChange} /&gt;
+            &lt;/div&gt;
+        ))}
+      &lt;/div&gt;
+      &lt;button onClick={predecir} style={{marginTop: '20px'}}&gt;CALCULAR PROGRESIÓN&lt;/button&gt;
+      
+      {resultado && (
+          &lt;h2&gt;Índice de Riesgo: {resultado.toFixed(2)}&lt;/h2&gt;
+      )}
+    &lt;/div&gt;
+  );
+}
+
+<span class="keyword">export default</span> App;</code></pre>
+
+            <p><strong>Paso Final:</strong> Ejecuta <code>npm run dev</code> en la terminal del frontend. ¡Listo!</p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

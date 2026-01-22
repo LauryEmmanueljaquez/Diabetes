@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Construcción Paso a Paso: IA Médica</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --code-bg: #1e293b;
+            --text: #334155;
+            --light: #f8fafc;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--light);
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            text-align: center;
+            border-bottom: 4px solid var(--accent);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        .step {
+            margin-bottom: 60px;
+            position: relative;
+            padding-left: 40px;
+            border-left: 3px solid #e2e8f0;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .step-number {
+            position: absolute;
+            left: -22px;
+            top: 0;
+            background: var(--accent);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: 4px solid white;
+        }
+
+        .instruction {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .code-block {
+            background: var(--code-bg);
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', monospace;
+            overflow-x: auto;
+            margin: 15px 0;
+            border-left: 5px solid #a3e635;
+        }
+
+        .cmd {
+            color: #86efac;
+        }
+
+        .comment {
+            color: #94a3b8;
+            font-style: italic;
+        }
+
+        .check-box {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #1e40af;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Guía de Construcción: Diamond Diabetes AI</h1>
+
+        <!-- PASO 1 -->
+        <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-title">Crear la Base del Proyecto</div>
+            <p class="instruction">Lo primero es crear una carpeta limpia donde vivirá todo nuestro código.</p>
+
+            <div class="code-block">
+                <div class="comment"># Abre tu terminal y ejecuta uno por uno:</div>
+                <div class="cmd">mkdir diabetes-ai</div>
+                <div class="cmd">cd diabetes-ai</div>
+                <div class="cmd">mkdir backend</div>
+            </div>
+
+            <div class="check-box">✅ Verifica que estés dentro de la carpeta "diabetes-ai".</div>
+        </div>
+
+        <!-- PASO 2 -->
+        <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-title">Preparar el Entorno Python (Backend)</div>
+            <p class="instruction">Vamos a crear un "Entorno Virtual" para instalar las librerías de IA sin afectar tu
+                sistema principal.</p>
+
+            <div class="code-block">
+                <div class="cmd">cd backend</div>
+                <div class="cmd">python -m venv venv</div>
+                <div class="comment"># En Windows:</div>
+                <div class="cmd">venv\Scripts\activate</div>
+                <div class="comment"># En Mac/Linux: source venv/bin/activate</div>
+            </div>
+
+            <div class="check-box">✅ Verifica que veas (venv) en color verde al inicio de tu terminal.</div>
+        </div>
+
+        <!-- PASO 3 -->
+        <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-title">Instalar Librerías de Inteligencia Artificial</div>
+            <p class="instruction">Crea un archivo llamado <code>requirements.txt</code> dentro de la carpeta
+                <code>backend</code> y pega la lista de ingredientes:</p>
+
+            <div class="code-block" style="border-left-color: #fbbf24;">
+                fastapi
+                uvicorn
+                scikit-learn
+                pandas
+                numpy
+                pydantic
+            </div>
+
+            <p class="instruction">Ahora, dile a Python que instale todo:</p>
+            <div class="code-block">
+                <div class="cmd">pip install -r requirements.txt</div>
+            </div>
+        </div>
+
+        <!-- PASO 4 -->
+        <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-title">Escribir el Código del Cerebro (API)</div>
+            <p class="instruction">Crea un archivo llamado <code>main.py</code> dentro de <code>backend</code>. Este es
+                el corazón del proyecto.</p>
+
+            <div class="code-block" style="border-left-color: #fbbf24; font-size: 0.9em;">
+                from fastapi import FastAPI
+                from pydantic import BaseModel
+                from sklearn.datasets import load_diabetes
+                from sklearn.linear_model import LinearRegression
+                import uvicorn
+
+                app = FastAPI()
+
+                # 1. ENTRENAR EL MODELO AL INICIAR
+                print("Entrenando IA...")
+                diabetes = load_diabetes(scaled=False)
+                X, y = diabetes.data, diabetes.target
+                model = LinearRegression()
+                model.fit(X, y)
+
+                # 2. DEFINIR DATOS DE ENTRADA
+                class Paciente(BaseModel):
+                age: float
+                sex: float
+                bmi: float
+                bp: float
+                s1: float
+                s2: float
+                s3: float
+                s4: float
+                s5: float
+                s6: float
+
+                # 3. CREAR RUTA DE PREDICCIÓN
+                @app.post("/predict")
+                def predecir(data: Paciente):
+                datos = [[
+                data.age, data.sex, data.bmi, data.bp,
+                data.s1, data.s2, data.s3, data.s4, data.s5, data.s6
+                ]]
+                resultado = model.predict(datos)
+                return {"progreso_estimado": resultado[0]}
+
+                # 4. ARRANCAR EL SERVIDOR
+                if __name__ == "__main__":
+                uvicorn.run(app, host="0.0.0.0", port=8000)
+            </div>
+
+            <p class="instruction">Pruébalo ahora mismo:</p>
+            <div class="code-block">
+                <div class="cmd">python main.py</div>
+            </div>
+            <div class="check-box">✅ Deberías ver: "Uvicorn running on http://0.0.0.0:8000"</div>
+        </div>
+
+        <!-- PASO 5 -->
+        <div class="step">
+            <div class="step-number">5</div>
+            <div class="step-title">Crear la Interfaz Web (Frontend)</div>
+            <p class="instruction">Deja corriendo el backend. Abre una <strong>NUEVA TERMINAL</strong> y vuelve a la
+                carpeta raíz.</p>
+
+            <div class="code-block">
+                <div class="comment"># Asegúrate de estar en /diabetes-ai</div>
+                <div class="cmd">npx create-vite@latest frontend --template react-ts</div>
+                <div class="cmd">cd frontend</div>
+                <div class="cmd">npm install</div>
+            </div>
+        </div>
+
+        <!-- PASO 6 -->
+        <div class="step">
+            <div class="step-number">6</div>
+            <div class="step-title">Conectar Todo (App.tsx)</div>
+            <p class="instruction">Abre el archivo <code>frontend/src/App.tsx</code>. Borra todo lo que hay dentro y
+                pega este código final:</p>
+
+            <div class="code-block" style="border-left-color: #60a5fa; font-size: 0.9em;">
+                import { useState } from 'react';
+
+                function App() {
+                const [form, setForm] = useState({
+                age: 50, sex: 1, bmi: 25, bp: 80,
+                s1: 150, s2: 100, s3: 50, s4: 4, s5: 4, s6: 90
+                });
+                const [resultado, setResultado] = useState(null);
+
+                const enviar = async () => {
+                const res = await fetch('http://localhost:8000/predict', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(form)
+                });
+                const data = await res.json();
+                setResultado(data.progreso_estimado);
+                };
+
+                return (
+                &lt;div style={{padding: '50px', background: '#f8fafc', minHeight: '100vh'}}&gt;
+                &lt;h1&gt;Diabetes AI&lt;/h1&gt;
+
+                &lt;div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px'}}&gt;
+                {Object.keys(form).map(campo => (
+                &lt;div key={campo}&gt;
+                &lt;label style={{display:'block', fontWeight:'bold'}}&gt;{campo.toUpperCase()}&lt;/label&gt;
+                &lt;input
+                type="number"
+                value={form[campo]}
+                onChange={e => setForm({...form, [campo]: parseFloat(e.target.value)})}
+                style={{padding: '10px', width: '100%'}}
+                /&gt;
+                &lt;/div&gt;
+                ))}
+                &lt;/div&gt;
+
+                &lt;button onClick={enviar} style={{marginTop: '30px', padding: '15px', background: '#2563eb', color:
+                'white', border: 'none', cursor: 'pointer', width:'100%'}}&gt;
+                CALCULAR RIESGO AHORA
+                &lt;/button&gt;
+
+                {resultado && (
+                &lt;div style={{marginTop: '30px', padding: '20px', background: '#dcfce7', color: '#166534', border:
+                '1px solid #166534'}}&gt;
+                &lt;h2&gt;Resultado: {resultado.toFixed(2)}&lt;/h2&gt;
+                &lt;p&gt;Progresión estimada de la enfermedad a 1 año.&lt;/p&gt;
+                &lt;/div&gt;
+                )}
+                &lt;/div&gt;
+                );
+                }
+
+                export default App;
+            </div>
+
+            <p class="instruction">¡Momento de la verdad! Ejecuta el frontend:</p>
+            <div class="code-block">
+                <div class="cmd">npm run dev</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
