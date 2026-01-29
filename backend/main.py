@@ -35,8 +35,12 @@ mse = mean_squared_error(y_test, y_pred)
 r2 = r2_score(y_test, y_pred)
 print(f"Model trained. MSE: {mse:.2f}, R2: {r2:.2f}")
 
+
 # Save model (optional, but good practice)
-joblib.dump(model, "diabetes_model.pkl")
+try:
+    joblib.dump(model, "diabetes_model.pkl")
+except OSError:
+    print("Warning: Could not save model (likely due to read-only filesystem)")
 
 class PredictionRequest(BaseModel):
     age: float
@@ -50,11 +54,11 @@ class PredictionRequest(BaseModel):
     s5: float
     s6: float
 
-@app.get("/")
+@app.get("/api/")
 def read_root():
     return {"message": "Diabetes Prediction API is running", "model_metrics": {"mse": mse, "r2": r2}}
 
-@app.post("/predict")
+@app.post("/api/predict")
 def predict(request: PredictionRequest):
     # Prepare features
     # Note: The sklearn dataset features are already scaled/normalized. 
@@ -86,7 +90,10 @@ y_pred_u = model.predict(X_test_u)
 mse_u = mean_squared_error(y_test_u, y_pred_u)
 r2_u = r2_score(y_test_u, y_pred_u)
 print(f"Unscaled Model trained. MSE: {mse_u:.2f}, R2: {r2_u:.2f}")
-joblib.dump(model, "diabetes_model_unscaled.pkl")
+try:
+    joblib.dump(model, "diabetes_model_unscaled.pkl")
+except OSError:
+    print("Warning: Could not save unscaled model")
 
 if __name__ == "__main__":
     import uvicorn
